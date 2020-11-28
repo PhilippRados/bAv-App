@@ -57,11 +57,11 @@ class bAVBot():
         time.sleep(1)
 
     def take_screenshot(self):
-        self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-        self.driver.find_element_by_xpath('//*[@id="body"]/section/div/div/div/div[2]/div[4]').screenshot("./../assets/graph.png")
+        self.driver.execute_script("window.scrollBy(0,200)")
+        self.screenshot = self.driver.find_element_by_xpath('//*[@id="body"]/section/div/div/div/div[2]/div[4]').screenshot_as_base64
+        #self.screenshot = self.driver.get_screenshot_as_base64()
 
     def execute_bot(self):
-        #self.connect_to_website()
         self.automate_inputs()
         self.click_button()
         self.take_screenshot()

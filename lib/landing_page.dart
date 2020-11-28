@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_app/welcomeList.dart';
 
-
 class WelcomeScreen extends StatefulWidget {
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
@@ -10,61 +9,75 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> {
   List<Widget> slides = items
       .map((item) => Container(
-      padding: EdgeInsets.symmetric(horizontal: 18.0),
-      child: Column(
-        children: <Widget>[
-          Flexible(
-            flex: 1,
-            fit: FlexFit.tight,
-            child: Image.asset(
-              item['image'],
-              fit: BoxFit.fitWidth,
-              width: 220.0,
-              alignment: Alignment.bottomCenter,
-            ),
-          ),
-          Flexible(
-            flex: 1,
-            fit: FlexFit.tight,
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 30.0),
-              child: Column(
-                children: <Widget>[
-                  Text(item['header'],
-                      style: TextStyle(
-                          fontSize: 50.0,
-                          fontWeight: FontWeight.w300,
-                          color: Color(0XFF3F3D56),
-                          height: 2.0)),
-                  Text(
-                    item['description'],
-                    style: TextStyle(
-                        color: Colors.grey,
-                        letterSpacing: 1.2,
-                        fontSize: 16.0,
-                        height: 1.3),
-                    textAlign: TextAlign.center,
-                  )
-                ],
+          color: Colors.white,
+          padding: EdgeInsets.symmetric(horizontal: 18.0),
+          child: Column(
+            children: <Widget>[
+              Flexible(
+                flex: 1,
+                fit: FlexFit.tight,
+                child: Image.asset(
+                  item['image'],
+                  fit: BoxFit.fitWidth,
+                  width: 320.0,
+                  alignment: Alignment.bottomCenter,
+                ),
               ),
-            ),
-          )
-        ],
-      )))
+              Flexible(
+                flex: 1,
+                fit: FlexFit.tight,
+                child: Container(
+                  padding: EdgeInsets.symmetric(horizontal: 30.0),
+                  child: Column(
+                    children: <Widget>[
+                      Text(item['header'],
+                          style: TextStyle(
+                              fontSize: 50.0,
+                              fontWeight: FontWeight.w300,
+                              color: Color(0XFF3F3D56),
+                              height: 2.0)),
+                      item['subheader'] != null
+                          ? Container(
+                              padding: EdgeInsets.only(bottom: 20, top: 0),
+                              child: new Text(
+                                item['subheader'],
+                                style: TextStyle(
+                                  fontSize: 30.0,
+                                  letterSpacing: 1.4,
+                                  color: Color(0XFF3F3D56),
+                                ),
+                              ),
+                            )
+                          : Text(""),
+                      Text(
+                        item['description'],
+                        style: TextStyle(
+                            color: Colors.grey,
+                            letterSpacing: 1.2,
+                            fontSize: 16.0,
+                            height: 1.3),
+                        textAlign: TextAlign.center,
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
+          )))
       .toList();
 
   List<Widget> indicator() => List<Widget>.generate(
       slides.length,
-          (index) => Container(
-        margin: EdgeInsets.symmetric(horizontal: 3.0),
-        height: 10.0,
-        width: 10.0,
-        decoration: BoxDecoration(
-            color: currentPage.round() == index
-                ? Color(0XFF256075)
-                : Color(0XFF256075).withOpacity(0.2),
-            borderRadius: BorderRadius.circular(10.0)),
-      ));
+      (index) => Container(
+            margin: EdgeInsets.symmetric(horizontal: 3.0),
+            height: 10.0,
+            width: 10.0,
+            decoration: BoxDecoration(
+                color: currentPage.round() == index
+                    ? Color(0XFF256075)
+                    : Color(0XFF256075).withOpacity(0.2),
+                borderRadius: BorderRadius.circular(10.0)),
+          ));
 
   double currentPage = 0.0;
   final _pageViewController = new PageController();
@@ -89,15 +102,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  margin: EdgeInsets.only(bottom:100),
+                  margin: EdgeInsets.only(bottom: 100),
                   padding: EdgeInsets.symmetric(vertical: 40.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: indicator(),
                   ),
                 )
-              //  ),
-            )
+                //  ),
+                )
             // )
           ],
         ),
@@ -113,27 +126,24 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             color: Color(0XFF256075),
           ),
           child: FlatButton(
-            onPressed: (){
+            onPressed: () {
               Navigator.pushNamed(context, '/home');
             },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-              Text(
-                  "Los gehts",
-                  style:TextStyle(
-                      color: Colors.white,
-                      fontSize: 18
-                  )),
-              SizedBox(width: 7.5),
-              Icon(
-                Icons.arrow_forward,
-                color: Colors.white,
-              ),],
+                Text("Los gehts",
+                    style: TextStyle(color: Colors.white, fontSize: 18)),
+                SizedBox(width: 7.5),
+                Icon(
+                  Icons.arrow_forward,
+                  color: Colors.white,
+                ),
+              ],
             ),
-            ),
-        ),            //shape: a,
           ),
-        );
+        ), //shape: a,
+      ),
+    );
   }
 }

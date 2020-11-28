@@ -17,9 +17,11 @@ def userInput():
     data = request.json
     print(data["Steuerklasse"])
     
-    bav_scraper.bAVBot(data["Brutto-verdienst"],data["bAV"],data["Steuerklasse"]).execute_bot()
+    bot = bav_scraper.bAVBot(data["Brutto-verdienst"],data["bAV"],data["Steuerklasse"])
+    bot.execute_bot()
 
-    return json.dumps(data)
+
+    return json.dumps({"image": bot.screenshot})
 
 # return jsonify({"image":json.dumps(serialized_img)})
 
