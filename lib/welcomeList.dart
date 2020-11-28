@@ -10,24 +10,24 @@ List items = [
     "header": "Build",
     "description":
         "Online chat which provides its users maximum functionality to simplify the search",
-    "image": "assets/graph.png"
+    "image": "assets/chillin.jpg"
   },
   {
     "header": "Launch",
     "description":
         "Online chat which provides its users maximum functionality to simplify the search",
-    "image": "assets/graph.png"
+    "image": "assets/chillin.jpg"
   },
   {
     "header": "Invest",
     "description":
         "Online chat which provides its users maximum functionality to simplify the search",
-    "image": "assets/graph.png"
+    "image": "assets/chillin.jpg"
   },
   {
     "header": "Travel",
     "description":
         "Online chat which provides its users maximum functionality to simplify the search",
-    "image": "assets/graph.png"
+    "image": "assets/chillin.jpg"
   }
 ];

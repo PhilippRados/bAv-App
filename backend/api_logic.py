@@ -4,10 +4,7 @@ import json
 import requests
 import bav_scraper
 
-# with open("./../assets/graph.png","rb") as img:
-#     encoded_img = base64.b64encode(img.read())
 
-# serialized_img = encoded_img.decode('utf-8')
 
 app = Flask(__name__)
 
@@ -23,7 +20,6 @@ def userInput():
 
     return json.dumps({"image": bot.screenshot})
 
-# return jsonify({"image":json.dumps(serialized_img)})
 
 if __name__ == '__main__':
     app.run(debug=True)
