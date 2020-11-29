@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:lottie/lottie.dart';
 
 class Loading extends StatelessWidget {
   @override
@@ -11,14 +12,20 @@ class Loading extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SpinKitWave(
-                color: Colors.black,
-                size: 50,
+              // SpinKitWave(
+              //   color: Colors.black,
+              //   size: 50,
+              // ),
+              Lottie.asset(
+                'assets/38217-money-growth.json',
+                repeat: true,
+                reverse: false,
+                animate: true,
               ),
               SizedBox(height: 30),
               Text(
                 "Eingaben werden ausgerechnet...",
-                style: TextStyle(fontSize: 14, color: Colors.black),
+                style: TextStyle(fontSize: 18, color: Colors.black),
               )
             ],
           ),

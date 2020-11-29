@@ -70,9 +70,3 @@ class bAVBot():
         self.click_button()
         self.get_data()
         print("executed_bot")
-
-# bot = bAVBot("3200","100","3")
-
-# bot.execute_bot()
-# print(bot.nettoAufwand)
-# print(bot.steuerErsparnis)

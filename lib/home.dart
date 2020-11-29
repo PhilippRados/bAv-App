@@ -5,6 +5,7 @@ import 'graph_response.dart';
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
 import 'loading.dart';
+import 'privates.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -174,7 +175,8 @@ class _HomeState extends State<Home> {
                         gb_controller.text,
                         brutto_controller.text,
                         bAV_controller.text,
-                        steuerklassen_value);
+                        steuerklassen_value,
+                        APP_KEY);
 
                     //json_response = get_image();
                     print(graph.image);
@@ -201,7 +203,7 @@ class _HomeState extends State<Home> {
 }
 
 Future<CalculatedGraph> createUserData(String Geburtstag, String Brutto,
-    String bAv_beitrag, int Steuerklasse) async {
+    String bAv_beitrag, int Steuerklasse, String Key) async {
   final String apiUrl = "http://10.0.2.2:5000/userInput";
 
   final response = await http.post(apiUrl,
@@ -211,6 +213,7 @@ Future<CalculatedGraph> createUserData(String Geburtstag, String Brutto,
         "Brutto-verdienst": Brutto,
         "bAV": bAv_beitrag,
         "Steuerklasse": Steuerklasse,
+        "key": Key
       }));
 
   if (response.statusCode == 200) {

@@ -40,3 +40,7 @@ app.*.symbols
 
 # Obfuscation related
 app.*.map.json
+
+#creds
+backend/privates.py
+lib/privates.dart
