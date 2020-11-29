@@ -10,7 +10,7 @@ List items = [
     "header": "Build",
     "description":
         "Online chat which provides its users maximum functionality to simplify the search",
-    "image": "assets/chillin.jpg"
+    "image": "assets/gelddrucker.png"
   },
   {
     "header": "Launch",

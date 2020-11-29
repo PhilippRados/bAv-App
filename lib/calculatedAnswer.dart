@@ -3,12 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'dart:io' as Io;
 import 'dart:convert';
-import 'package:test_app/detailedAnswer.dart';
 
 class CalculatedPage extends StatelessWidget {
   final image;
+  final nettoAufwand;
+  final steuerErsparnis;
 
-  CalculatedPage({Uint8List this.image});
+  CalculatedPage(
+      {Uint8List this.image,
+      String this.nettoAufwand,
+      String this.steuerErsparnis});
 
   @override
   Widget build(BuildContext context) {
@@ -53,41 +57,51 @@ class CalculatedPage extends StatelessWidget {
                       child: Image.memory(this.image),
                     )),
                 Container(
-                  margin: EdgeInsets.fromLTRB(20, 30, 20, 20),
+                  margin: EdgeInsets.fromLTRB(20, 30, 20, 30),
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: Color(0XFFC7D93E),
+                  ),
                   child: Text(
-                    "Sie zahlen selbst nur 321.37§ Vom Staat erhalten Sie 198% Zuschusszusätzlich (hier nicht in der Grafik angegeben)dazu",
+                    "Sie zahlen selbst nur ${this.nettoAufwand}€ Vom Staat erhalten Sie ${this.steuerErsparnis}€ Zuschusszusätzlich (hier nicht in der Grafik angegeben) dazu",
                     style: TextStyle(fontSize: 18),
+                    textAlign: TextAlign.center,
                   ),
                 ),
                 Container(
                   margin: EdgeInsets.only(bottom: 20, left: 20, right: 20),
                   height: 50,
                   width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(550),
-                    color: Color(0XFF256075),
-                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      FlatButton(
-                        minWidth: 100,
+                      Container(
+                        width: 170,
                         height: 50,
-                        color: Colors.amber,
-                        onPressed: () => {},
-                        child: Text(
-                          "Neuberechnen",
-                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Color(0XFF36C6DD)),
+                        child: FlatButton(
+                          onPressed: () => {},
+                          child: Text(
+                            "Neuberechnen",
+                            style: TextStyle(fontSize: 17, color: Colors.white),
+                          ),
                         ),
                       ),
-                      FlatButton(
-                        minWidth: 150,
+                      Container(
+                        width: 170,
                         height: 50,
-                        color: Colors.redAccent,
-                        onPressed: () => {},
-                        child: Text(
-                          "Weiter",
-                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Color(0XFF518293)),
+                        child: FlatButton(
+                          onPressed: () => {},
+                          child: Text(
+                            "Weiter",
+                            style: TextStyle(fontSize: 17, color: Colors.white),
+                          ),
                         ),
                       ),
                     ],

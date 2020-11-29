@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
     return loading
         ? Loading()
         : Scaffold(
-            backgroundColor: Color(0XFF256075),
+            backgroundColor: Color(0XFF518293),
             body: SafeArea(
               child: Column(
                 children: <Widget>[
@@ -58,6 +58,14 @@ class _HomeState extends State<Home> {
                         color: Colors.white,
                         borderRadius:
                             BorderRadius.only(topRight: Radius.circular(50.0)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withOpacity(0.4),
+                            spreadRadius: 7,
+                            blurRadius: 5,
+                            offset: Offset(0, 3), // changes position of shadow
+                          ),
+                        ],
                       ),
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,
@@ -176,8 +184,11 @@ class _HomeState extends State<Home> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>
-                            CalculatedPage(image: decoded_graph),
+                        builder: (context) => CalculatedPage(
+                          image: decoded_graph,
+                          nettoAufwand: graph.nettoAufwandBAv,
+                          steuerErsparnis: graph.steuerErsparnis,
+                        ),
                       ),
                     );
                     setState(() => loading = false);
@@ -199,7 +210,7 @@ Future<CalculatedGraph> createUserData(String Geburtstag, String Brutto,
         "Geburtstag": Geburtstag,
         "Brutto-verdienst": Brutto,
         "bAV": bAv_beitrag,
-        "Steuerklasse": Steuerklasse
+        "Steuerklasse": Steuerklasse,
       }));
 
   if (response.statusCode == 200) {

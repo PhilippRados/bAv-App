@@ -56,13 +56,23 @@ class bAVBot():
         self.driver.find_element_by_xpath('//*[@id="body"]/section/div/div/div/div[2]/div[1]/div/div/a').click()
         time.sleep(1)
 
-    def take_screenshot(self):
+    def get_data(self):
         self.driver.execute_script("window.scrollBy(0,200)")
         self.screenshot = self.driver.find_element_by_xpath('//*[@id="body"]/section/div/div/div/div[2]/div[4]').screenshot_as_base64
-        #self.screenshot = self.driver.get_screenshot_as_base64()
+        self.nettoAufwand = self.driver.find_element_by_xpath('//*[@id="body"]/section/div/div/div/div[2]/div[2]/div[9]/div/div[12]/label').text
+        
+        bav = int(self.bAV)
+        self.nettoAufwand = self.nettoAufwand[:-2].replace(",",".")
+        self.steuerErsparnis = str(bav - float(self.nettoAufwand))
 
     def execute_bot(self):
         self.automate_inputs()
         self.click_button()
-        self.take_screenshot()
+        self.get_data()
         print("executed_bot")
+
+# bot = bAVBot("3200","100","3")
+
+# bot.execute_bot()
+# print(bot.nettoAufwand)
+# print(bot.steuerErsparnis)
