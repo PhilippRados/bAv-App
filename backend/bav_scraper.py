@@ -63,7 +63,7 @@ class bAVBot():
         
         bav = int(self.bAV)
         self.nettoAufwand = self.nettoAufwand[:-2].replace(",",".")
-        self.steuerErsparnis = str(bav - float(self.nettoAufwand))
+        self.steuerErsparnis = str(round(float(bav - float(self.nettoAufwand)),2))
 
     def execute_bot(self):
         self.automate_inputs()

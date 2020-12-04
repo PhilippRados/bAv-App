@@ -38,7 +38,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               height: 2.0)),
                       item['subheader'] != null
                           ? Container(
-                              padding: EdgeInsets.only(bottom: 20, top: 0),
+                              padding: EdgeInsets.only(bottom: 10, top: 0),
                               child: new Text(
                                 item['subheader'],
                                 style: TextStyle(
@@ -83,66 +83,68 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   final _pageViewController = new PageController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: Stack(
-          children: <Widget>[
-            PageView.builder(
-              controller: _pageViewController,
-              itemCount: slides.length,
-              itemBuilder: (BuildContext context, int index) {
-                _pageViewController.addListener(() {
-                  setState(() {
-                    currentPage = _pageViewController.page;
+    return SafeArea(
+      child: Scaffold(
+        body: Container(
+          child: Stack(
+            children: <Widget>[
+              PageView.builder(
+                controller: _pageViewController,
+                itemCount: slides.length,
+                itemBuilder: (BuildContext context, int index) {
+                  _pageViewController.addListener(() {
+                    setState(() {
+                      currentPage = _pageViewController.page;
+                    });
                   });
-                });
-                return slides[index];
-              },
-            ),
-            Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  margin: EdgeInsets.only(bottom: 100),
-                  padding: EdgeInsets.symmetric(vertical: 40.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: indicator(),
-                  ),
-                )
-                //  ),
-                )
-            // )
-          ],
+                  return slides[index];
+                },
+              ),
+              Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    margin: EdgeInsets.only(bottom: 100),
+                    padding: EdgeInsets.symmetric(vertical: 40.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: indicator(),
+                    ),
+                  )
+                  //  ),
+                  )
+              // )
+            ],
+          ),
         ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.only(bottom: 15),
-        child: Container(
-          height: 60,
-          width: MediaQuery.of(context).size.width - 70,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(60),
-            color: Color(0XFF256075),
-          ),
-          child: FlatButton(
-            onPressed: () {
-              Navigator.pushNamed(context, '/home');
-            },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("Los gehts",
-                    style: TextStyle(color: Colors.white, fontSize: 18)),
-                SizedBox(width: 7.5),
-                Icon(
-                  Icons.arrow_forward,
-                  color: Colors.white,
-                ),
-              ],
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.only(bottom: 15),
+          child: Container(
+            height: 60,
+            width: MediaQuery.of(context).size.width - 70,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(60),
+              color: Color(0XFF256075),
             ),
-          ),
-        ), //shape: a,
+            child: FlatButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/home');
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Los gehts",
+                      style: TextStyle(color: Colors.white, fontSize: 18)),
+                  SizedBox(width: 7.5),
+                  Icon(
+                    Icons.arrow_forward,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+            ),
+          ), //shape: a,
+        ),
       ),
     );
   }

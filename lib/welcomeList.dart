@@ -3,7 +3,7 @@ List items = [
     "header": "Medialis",
     "subheader": "Zulagen-Rechner",
     "description":
-        "Online chat which provides its users maximum functionality to simplify the search",
+        "Der Medialias-Rechner hilft Ihnen zu zeigen wie Sie einfach Geld sparen können",
     "image": "assets/Farbkleks.png"
   },
   {
