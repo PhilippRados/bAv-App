@@ -302,15 +302,6 @@ Future<CalculatedGraph> createUserData(String Geburtstag, String Brutto,
   }
 }
 
-String validate_bAv(String value) {
-  var int_value = int.parse(value);
-  if (int_value > 476) {
-    return "bAV-Beitrag kann nicht höher als 476€ sein";
-  } else if (int_value < 0) {
-    return "Kann weniger als 0€ sein";
-  }
-}
-
 class BavValidator extends TextFieldValidator {
   // pass the error text to the super constructor
   BavValidator({String errorText = 'Wert muss im Bereich 0-476 liegen'})
@@ -326,16 +317,5 @@ class BavValidator extends TextFieldValidator {
     } else {
       return true;
     }
-  }
-}
-
-class FailedToConnectApi extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text("Error occured when trying to connect to server"),
-      ),
-    );
   }
 }
