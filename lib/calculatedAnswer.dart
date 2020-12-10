@@ -64,10 +64,22 @@ class CalculatedPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(8),
                       color: Color(0XFFC7D93E),
                     ),
-                    child: Text(
-                      "Sie zahlen selbst nur ${this.nettoAufwand}€ Vom Staat erhalten Sie ${this.steuerErsparnis}€ Zuschusszusätzlich (hier nicht in der Grafik angegeben) dazu",
-                      style: TextStyle(fontSize: 18),
-                      textAlign: TextAlign.center,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            HeroDialogRoute(
+                                builder: (BuildContext context) =>
+                                    GrosserText()));
+                      },
+                      child: Hero(
+                        tag: "basicResult",
+                        child: Text(
+                          "Sie zahlen selbst nur ${this.nettoAufwand}€ Vom Staat erhalten Sie ${this.steuerErsparnis}€ Zuschusszusätzlich (hier nicht in der Grafik angegeben) dazu",
+                          style: TextStyle(fontSize: 18),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
                     ),
                   ),
                   Container(
@@ -118,4 +130,82 @@ class CalculatedPage extends StatelessWidget {
       )),
     );
   }
+}
+
+class GrosserText extends StatefulWidget {
+  @override
+  _GrosserTextState createState() => _GrosserTextState();
+}
+
+class _GrosserTextState extends State<GrosserText> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 50),
+      child: Center(
+        child: AlertDialog(
+          title: Hero(
+              tag: "hero2",
+              child: Material(
+                  child: Text(
+                'Detailliertere Auswertung:',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ))),
+          content: Container(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Hero(
+                tag: 'hero1',
+                child: Text(
+                  "Siete 2",
+                )),
+          ),
+          actions: <Widget>[
+            OutlineButton(
+              onPressed: () => Navigator.of(context).pop(),
+              child: Text("OK"),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class HeroDialogRoute<T> extends PageRoute<T> {
+  HeroDialogRoute({this.builder}) : super();
+
+  final WidgetBuilder builder;
+
+  @override
+  bool get opaque => false;
+
+  @override
+  bool get barrierDismissible => true;
+
+  @override
+  Duration get transitionDuration => const Duration(milliseconds: 500);
+
+  @override
+  bool get maintainState => true;
+
+  @override
+  Color get barrierColor => Colors.black54;
+
+  @override
+  Widget buildTransitions(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation, Widget child) {
+    return new FadeTransition(
+        opacity: new CurvedAnimation(parent: animation, curve: Curves.easeOut),
+        child: child);
+  }
+
+  @override
+  Widget buildPage(BuildContext context, Animation<double> animation,
+      Animation<double> secondaryAnimation) {
+    return builder(context);
+  }
+
+  @override
+  String get barrierLabel => null;
 }

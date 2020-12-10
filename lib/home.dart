@@ -242,6 +242,8 @@ class _HomeState extends State<Home> {
                                                     return AlertDialog(
                                                       title: Text(
                                                           "Server nicht erreichbar"),
+                                                      content: Text(
+                                                          "Überprüfen Sie Ihre Internetverbindung"),
                                                       actions: [
                                                         FlatButton(
                                                             onPressed: () {
