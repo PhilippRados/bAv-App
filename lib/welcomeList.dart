@@ -7,9 +7,10 @@ List items = [
     "image": "assets/Farbkleks.png"
   },
   {
-    "header": "Build",
+    "header": "Geld",
+    "subheader": "drucken",
     "description":
-        "Online chat which provides its users maximum functionality to simplify the search",
+        "Dieser Text ist von mir ausgedacht, aber das wird den Englischsprachigen nicht auffallen",
     "image": "assets/gelddrucker.png"
   },
   {
