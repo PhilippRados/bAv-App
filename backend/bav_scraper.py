@@ -11,7 +11,7 @@ class bAVBot():
         self.Brutto = Brutto
         self.bAV = bAV
         self.Steuerklasse = Steuerklasse
-        self.driver = webdriver.Chrome("/Users/philipprados/Downloads/chromedriver",options=chrome_options)
+        self.driver = webdriver.Chrome("/usr/local/bin/chromedriver",options=chrome_options)
         self.driver.get("https://rechner.selbst-rechnen.de/bAV/")
 
 

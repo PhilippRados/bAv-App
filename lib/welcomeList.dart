@@ -1,9 +1,9 @@
 List items = [
   {
-    "header": "Medialis",
+    "header": "Philipps",
     "subheader": "Zulagen-Rechner",
     "description":
-        "Der Medialias-Rechner hilft Ihnen zu zeigen wie Sie einfach Geld sparen können",
+        "Der Philipp-Rechner hilft Ihnen zu zeigen wie Sie einfach Geld sparen können",
     "image": "assets/Farbkleks.png"
   },
   {

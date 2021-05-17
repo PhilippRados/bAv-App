@@ -209,6 +209,7 @@ class _HomeState extends State<Home> {
                                                     bAV_controller.text,
                                                     steuerklassen_value,
                                                     APP_KEY);
+                                            print("trying to connect to api");
 
                                             final decoded_graph =
                                                 base64Decode(graph.image);

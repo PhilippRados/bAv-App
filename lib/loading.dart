@@ -12,10 +12,6 @@ class Loading extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // SpinKitWave(
-              //   color: Colors.black,
-              //   size: 50,
-              // ),
               Lottie.asset(
                 'assets/38217-money-growth.json',
                 repeat: true,
