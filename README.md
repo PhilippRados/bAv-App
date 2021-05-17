@@ -1,6 +1,6 @@
 # bAV-Rechner
 
-This was supposed to be an app for a company but they didn't need so I didn't bother really finishing it. It's still nice to see on my GitHub because it looks as if it was ready to ship.
+This was supposed to be an app for a company but things didn't work out so I didn't bother really finishing it. It's still nice to see on my GitHub because it looks as if it was ready to ship.
 If you were to use it you have to change the path to the chromedriver in *bav_scraper.py*. 
 The idea was that you type in your information and the app shows you how much tax-money you could save. 
 
