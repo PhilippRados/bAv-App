@@ -12,5 +12,6 @@ Landing Page               | Input                     | Evaluation Page
 
 
 #### How to run
-To actually start the program you have to run the *backend/api_logic.py* file to run the API-server for the communication between app and webscraper.
-The app is in german because the company was german.
+* To actually start the program you have to run the *backend/api_logic.py* file to run the API-server for the communication between app and webscraper.
+* The app is in german because the company was german. 
+* This was coded on a Google Pixel Emulator so it might not fit every phone
